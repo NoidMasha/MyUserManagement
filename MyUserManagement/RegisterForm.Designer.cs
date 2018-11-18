@@ -43,6 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.baseLabel4 = new Infrastructure.BaseLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -216,6 +217,18 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Visible = false;
             // 
+            // baseLabel4
+            // 
+            this.baseLabel4.AutoSize = true;
+            this.baseLabel4.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Italic);
+            this.baseLabel4.ForeColor = System.Drawing.Color.Maroon;
+            this.baseLabel4.Location = new System.Drawing.Point(89, 33);
+            this.baseLabel4.Name = "baseLabel4";
+            this.baseLabel4.Size = new System.Drawing.Size(185, 13);
+            this.baseLabel4.TabIndex = 14;
+            this.baseLabel4.Text = "This Username already exist!!!";
+            this.baseLabel4.Visible = false;
+            // 
             // RegisterForm
             // 
             this.AcceptButton = this.registerButton;
@@ -223,6 +236,7 @@
             this.CancelButton = this.exitButton;
             this.ClientSize = new System.Drawing.Size(354, 162);
             this.ControlBox = false;
+            this.Controls.Add(this.baseLabel4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -267,5 +281,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private Infrastructure.BaseLabel baseLabel4;
     }
 }

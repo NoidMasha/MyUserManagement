@@ -50,6 +50,7 @@ namespace MyUserManagement
                     {
                         pictureBox1.Visible = true;
                         pictureBox2.Visible = false;
+                        baseLabel4.Visible = false;
                         if (pictureBox3.Visible && !string.IsNullOrWhiteSpace(fullnameTextbox.Text))
                         {
                             registerButton.Enabled = true;
@@ -60,6 +61,7 @@ namespace MyUserManagement
                     {
                         pictureBox1.Visible = false;
                         pictureBox2.Visible = true;
+                        baseLabel4.Visible = true;
                         registerButton.Enabled = false;
                     }
                 }
