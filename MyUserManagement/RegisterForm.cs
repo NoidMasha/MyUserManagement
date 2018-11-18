@@ -130,7 +130,7 @@ namespace MyUserManagement
                 Models.User user = new Models.User
                 {
                     FullName = fullnameTextbox.Text,
-                    Password = passwordTextbox.Text,
+                    Password = Infrastructure.Utility.getHashSha256(passwordTextbox.Text),
                     Username = usernameTextbox.Text,
 
                     IsActive = true

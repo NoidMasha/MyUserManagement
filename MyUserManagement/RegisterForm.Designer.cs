@@ -94,7 +94,7 @@
             this.passwordTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextbox.Location = new System.Drawing.Point(92, 47);
-            this.passwordTextbox.MaxLength = 40;
+            this.passwordTextbox.MaxLength = 64;
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.PasswordChar = '*';
             this.passwordTextbox.Size = new System.Drawing.Size(244, 21);

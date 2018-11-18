@@ -45,7 +45,7 @@ namespace MyUserManagement
                     adminUser.IsActive = true;
 
                     adminUser.Username = "Dariush";
-                    adminUser.Password = "Da1234512345";
+                    adminUser.Password = Infrastructure.Utility.getHashSha256("Da1234512345");
                     adminUser.FullName = "Mr. Dariush Tasdighi";
 
                     databaseContext.Users.Add(adminUser);

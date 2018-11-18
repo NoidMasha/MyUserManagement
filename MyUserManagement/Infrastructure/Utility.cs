@@ -135,6 +135,19 @@ namespace Infrastructure
             else { return false; }
         }
 
+        public static string getHashSha256(string text)
+        {
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
+            System.Security.Cryptography.SHA256Managed hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += System.String.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
+
         ///// <summary>
         ///// Checks a string and returns true if it doesn't contain invalid chars for username
         ///// </summary>

@@ -65,16 +65,20 @@
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(244, 21);
             this.usernameTextbox.TabIndex = 1;
+            this.usernameTextbox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.usernameTextbox.WaterMarkText = "Water Mark";
             // 
             // passwordTextbox
             // 
             this.passwordTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordTextbox.Location = new System.Drawing.Point(92, 47);
-            this.passwordTextbox.MaxLength = 40;
+            this.passwordTextbox.MaxLength = 64;
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Size = new System.Drawing.Size(244, 21);
             this.passwordTextbox.TabIndex = 3;
+            this.passwordTextbox.WaterMarkColor = System.Drawing.Color.Gray;
+            this.passwordTextbox.WaterMarkText = "Water Mark";
             // 
             // registerButton
             // 
