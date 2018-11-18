@@ -86,6 +86,7 @@ namespace Infrastructure
                 {
                     registerForm =
                         new MyUserManagement.RegisterForm();
+                    registerForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
                 }
 
                 return registerForm;

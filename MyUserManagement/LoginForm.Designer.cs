@@ -75,6 +75,7 @@
             this.passwordTextbox.Location = new System.Drawing.Point(92, 47);
             this.passwordTextbox.MaxLength = 64;
             this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.PasswordChar = '*';
             this.passwordTextbox.Size = new System.Drawing.Size(244, 21);
             this.passwordTextbox.TabIndex = 3;
             this.passwordTextbox.WaterMarkColor = System.Drawing.Color.Gray;
@@ -109,6 +110,7 @@
             this.loginButton.TabIndex = 4;
             this.loginButton.Text = "&Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // exitButton
             // 
