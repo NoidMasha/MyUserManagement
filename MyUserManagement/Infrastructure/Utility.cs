@@ -31,6 +31,7 @@ namespace Infrastructure
                 {
                     mainForm =
                         new MyUserManagement.MainForm();
+                    mainForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 }
 
                 return mainForm;
