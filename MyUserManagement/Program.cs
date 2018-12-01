@@ -45,7 +45,7 @@ namespace MyUserManagement
                     adminUser.IsActive = true;
 
                     adminUser.Username = "Dariush";
-                    adminUser.Password = Infrastructure.Utility.getHashSha256("Da1234512345");
+                    adminUser.Password = Infrastructure.Utility.getHashSha256("1234512345");
                     adminUser.FullName = "Mr. Dariush Tasdighi";
 
                     databaseContext.Users.Add(adminUser);
@@ -73,19 +73,9 @@ namespace MyUserManagement
             //System.Windows.Forms.Application.Run(new StartupForm());
 
             #region Runing Startup Form and then Disposing!
-            MainForm startupForm = new MainForm();
+            
+            System.Windows.Forms.Application.Run(Infrastructure.Utility.LoginForm);
 
-			System.Windows.Forms.Application.Run(startupForm);
-
-			if (startupForm != null)
-			{
-				if (startupForm.IsDisposed == false)
-				{
-					startupForm.Dispose();
-				}
-
-				startupForm = null;
-			}
 			#endregion /Runing Startup Form and then Disposing!
 			// **************************************************
 		}

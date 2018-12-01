@@ -1,5 +1,4 @@
-﻿//namespace MyApplication.Infrastructure
-namespace Infrastructure
+﻿namespace MyUserManagement.Infrastructure
 {
     public static class Utility
     {
@@ -11,91 +10,47 @@ namespace Infrastructure
         //public static System.Guid UserId { get; set; }
 
         public static Models.User AuthenticatedUser { get; set; }
-        // **************************************************
 
-        // **************************************************
-        // **************************************************
-        // **************************************************
         private static MyUserManagement.MainForm mainForm;
-        // **************************************************
-
-        // **************************************************
-        /// <summary>
-        /// Lazy Loading = Lazy Initialization
-        /// </summary>
         public static MyUserManagement.MainForm MainForm
         {
             get
             {
-                if (mainForm == null)
+                if (mainForm == null || mainForm.IsDisposed)
                 {
-                    mainForm =
-                        new MyUserManagement.MainForm();
-                    mainForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                    mainForm = new MyUserManagement.MainForm();
+                    //mainForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 }
-
                 return mainForm;
             }
         }
-        // **************************************************
-        // **************************************************
-        // **************************************************
-
-        // **************************************************
-        // **************************************************
-        // **************************************************
+        
         private static MyUserManagement.LoginForm loginForm;
-        // **************************************************
-
-        // **************************************************
-        /// <summary>
-        /// Lazy Loading = Lazy Initialization
-        /// </summary>
         public static MyUserManagement.LoginForm LoginForm
         {
             get
             {
-                if (loginForm == null)
+                if (loginForm == null || loginForm.IsDisposed)
                 {
-                    loginForm =
-                        new MyUserManagement.LoginForm();
+                    loginForm = new MyUserManagement.LoginForm();
                 }
-
                 return loginForm;
             }
         }
-        // **************************************************
-        // **************************************************
-        // **************************************************
-
-        // **************************************************
-        // **************************************************
-        // **************************************************
+        
         private static MyUserManagement.RegisterForm registerForm;
-        // **************************************************
-
-        // **************************************************
-        /// <summary>
-        /// Lazy Loading = Lazy Initialization
-        /// </summary>
         public static MyUserManagement.RegisterForm RegisterForm
         {
             get
             {
-                if (registerForm == null)
+                if (registerForm == null || registerForm.IsDisposed)
                 {
-                    registerForm =
-                        new MyUserManagement.RegisterForm();
-                    registerForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+                    registerForm = new MyUserManagement.RegisterForm();
+                    //registerForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
                 }
-
                 return registerForm;
             }
         }
-        // **************************************************
-        // **************************************************
-        // **************************************************
-
 
         /// <summary>
         /// Checks a string and returns true if it doesn't contains invalid characters for username

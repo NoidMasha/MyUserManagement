@@ -1,9 +1,9 @@
 ﻿
 
 
-namespace Infrastructure
+namespace MyUserManagement.Infrastructure
 {
-    class BaseTextbox:System.Windows.Forms.TextBox
+    class BaseTextBox:System.Windows.Forms.TextBox
     {
         private System.Drawing.Font oldFont = null;
         private bool waterMarkTextEnabled = false;
@@ -33,7 +33,7 @@ namespace Infrastructure
         #endregion \Attributes
 
         //Default constructor
-        public BaseTextbox()
+        public BaseTextBox()
         {
             JoinEvents(true);
         }

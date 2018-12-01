@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Infrastructure
+namespace MyUserManagement.Infrastructure
 {
 	public partial class BaseForm : System.Windows.Forms.Form
 	{

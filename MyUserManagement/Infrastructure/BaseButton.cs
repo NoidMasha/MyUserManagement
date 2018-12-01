@@ -1,4 +1,4 @@
-﻿namespace Infrastructure
+﻿namespace MyUserManagement.Infrastructure
 {
     class BaseButton:System.Windows.Forms.Button
     {

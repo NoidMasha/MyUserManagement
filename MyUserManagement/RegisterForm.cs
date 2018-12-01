@@ -7,34 +7,36 @@ namespace MyUserManagement
         public RegisterForm()
         {
             InitializeComponent();
-            usernameTextbox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
-            passwordTextbox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
-            fullnameTextbox.WaterMarkText = "Maximum 50 Letters";
+            usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
+            passwordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
+            confirmPassTextBox.WaterMarkText = "Retype Password";
+            fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)
         {
-            usernameTextbox.Text = string.Empty;
-            passwordTextbox.Text = string.Empty;
-            fullnameTextbox.Text = string.Empty;
+            usernameTextBox.Clear();
+            passwordTextBox.Clear();
+            confirmPassTextBox.Clear();
+            fullnameTextBox.Clear();
 
-            usernameTextbox.Focus();
+            usernameTextBox.Focus();
         }
 
         private void exitButton_Click(object sender, System.EventArgs e)
         {
-            Close();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void loginButton_Click(object sender, System.EventArgs e)
         {
-            Hide();
+            Close();
             Infrastructure.Utility.LoginForm.Show();
         }
 
         private void usernameTextbox_KeyUp(object sender, System.EventArgs e)
         {
-            if (Infrastructure.Utility.validUsername(usernameTextbox.Text, 6, 20))
+            if (Infrastructure.Utility.validUsername(usernameTextBox.Text, 6, 20))
             {
                 Models.DatabaseContext databaseContext = null;
                 try
@@ -43,7 +45,7 @@ namespace MyUserManagement
                     new Models.DatabaseContext();
                     Models.User user =
                         databaseContext.Users
-                        .Where(current => string.Compare(current.Username, usernameTextbox.Text, true) == 0)
+                        .Where(current => string.Compare(current.Username, usernameTextBox.Text, true) == 0)
                         .FirstOrDefault();
 
                     if (user == null)
@@ -51,7 +53,7 @@ namespace MyUserManagement
                         pictureBox1.Visible = true;
                         pictureBox2.Visible = false;
                         baseLabel4.Visible = false;
-                        if (pictureBox3.Visible && !string.IsNullOrWhiteSpace(fullnameTextbox.Text))
+                        if (pictureBox3.Visible && !string.IsNullOrWhiteSpace(fullnameTextBox.Text))
                         {
                             registerButton.Enabled = true;
                         }
@@ -83,36 +85,49 @@ namespace MyUserManagement
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = true;
             }
+            enableRegisterButton();
         }
 
         private void passwordTextbox_KeyUp(object sender, System.EventArgs e)
         {
-            if (Infrastructure.Utility.validPassword(passwordTextbox.Text, 8, 40))
+            if (Infrastructure.Utility.validPassword(passwordTextBox.Text, 8, 40))
             {
                 pictureBox3.Visible = true;
                 pictureBox4.Visible = false;
-                if (pictureBox1.Visible && !string.IsNullOrWhiteSpace(fullnameTextbox.Text))
-                {
-                    registerButton.Enabled = true;
-                }
+
+                confirmPassTextbox_KeyUp(null, null);
             }
             else
             {
                 pictureBox3.Visible = false;
                 pictureBox4.Visible = true;
             }
+            enableRegisterButton();
         }
 
-        private void fullnameTextbox_KeyUp(object sender, System.EventArgs e)
+        private void confirmPassTextbox_KeyUp(object sender, System.EventArgs e)
         {
-            if (pictureBox1.Visible && pictureBox3.Visible && !string.IsNullOrWhiteSpace(fullnameTextbox.Text))
+            if ((passwordTextBox.Text.Length == confirmPassTextBox.Text.Length &&
+                !string.IsNullOrWhiteSpace(passwordTextBox.Text)) ||
+                pictureBox5.Visible || pictureBox6.Visible)
             {
-                registerButton.Enabled = true;
+                if (string.Compare(passwordTextBox.Text, confirmPassTextBox.Text, false) == 0)
+                {
+                    pictureBox5.Visible = true;
+                    pictureBox6.Visible = false;
+                }
+                else
+                {
+                    pictureBox5.Visible = false;
+                    pictureBox6.Visible = true;
+                }
             }
-            else
-            {
-                registerButton.Enabled = false;
-            }
+            enableRegisterButton();
+        }
+
+        private void enableRegisterButton()
+        {
+            registerButton.Enabled = pictureBox1.Visible && pictureBox3.Visible && pictureBox5.Visible;
         }
 
         private void registerButton_Click(object sender, System.EventArgs e)
@@ -120,31 +135,33 @@ namespace MyUserManagement
             Models.DatabaseContext databaseContext = null;
             try
             {
-                fullnameTextbox.Text = fullnameTextbox.Text.Trim();
-                while (fullnameTextbox.Text.Contains("  "))
+                fullnameTextBox.Text = fullnameTextBox.Text.Trim();
+                while (fullnameTextBox.Text.Contains("  "))
                 {
-                    fullnameTextbox.Text = fullnameTextbox.Text.Replace("  ", " ");
+                    fullnameTextBox.Text = fullnameTextBox.Text.Replace("  ", " ");
                 }
-                fullnameTextbox.Invalidate();
+                fullnameTextBox.Invalidate();
 
                 databaseContext = new Models.DatabaseContext();
 
                 Models.User user = new Models.User
                 {
-                    FullName = fullnameTextbox.Text,
-                    Password = Infrastructure.Utility.getHashSha256(passwordTextbox.Text),
-                    Username = usernameTextbox.Text,
+                    FullName = fullnameTextBox.Text,
+                    Password = Infrastructure.Utility.getHashSha256(passwordTextBox.Text),
+                    Username = usernameTextBox.Text,
 
-                    IsActive = true
+                    IsActive = false
                 };
 
                 databaseContext.Users.Add(user);
-
                 databaseContext.SaveChanges();
 
                 System.Windows.Forms.MessageBox.Show("Registration Done!");
 
-                resetButton_Click(null, null);
+                Close();
+                Infrastructure.Utility.LoginForm.usernameText = user.Username;
+                Infrastructure.Utility.LoginForm.Show();
+
             }
             catch (System.Exception ex)
             {

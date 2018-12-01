@@ -6,16 +6,28 @@ namespace MyUserManagement
         public LoginForm()
         {
             InitializeComponent();
-            usernameTextbox.WaterMarkText = "Username";
-            passwordTextbox.WaterMarkText = "Password";
+            usernameTextBox.WaterMarkText = "Username";
+            passwordTextBox.WaterMarkText = "Password";
+        }
+
+        public string usernameText
+        {
+            set
+            {
+                usernameTextBox.Text = value;
+            }
+        }
+        public void clearPassword()
+        {
+            passwordTextBox.Clear();
+            passwordTextBox.Focus();
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)
         {
-            usernameTextbox.Text = string.Empty;
-            passwordTextbox.Text = string.Empty;
-
-            usernameTextbox.Focus();
+            usernameTextBox.Clear();
+            passwordTextBox.Clear();
+            usernameTextBox.Focus();
         }
 
         private void exitButton_Click(object sender, System.EventArgs e)
@@ -29,32 +41,32 @@ namespace MyUserManagement
             Infrastructure.Utility.RegisterForm.Show();
         }
 
+        private void showPictureBox_Down(object sender, System.EventArgs e)
+        {
+            passwordTextBox.PasswordChar = '\0';
+        }
+        private void showPictureBox_Up(object sender, System.EventArgs e)
+        {
+            passwordTextBox.PasswordChar = '*';
+        }
+
         private void loginButton_Click(object sender, System.EventArgs e)
         {
-            if ((string.IsNullOrWhiteSpace(usernameTextbox.Text)) ||
-                (string.IsNullOrWhiteSpace(passwordTextbox.Text)))
+            if ((string.IsNullOrWhiteSpace(usernameTextBox.Text)) ||
+                (string.IsNullOrWhiteSpace(passwordTextBox.Text)))
             {
-                //usernameTextBox.Text =
-                //	usernameTextBox.Text.Trim();
 
-                //passwordTextBox.Text =
-                //	passwordTextBox.Text.Trim();
+                System.Windows.Forms.MessageBox.Show("Username and Password are required!");
 
-                usernameTextbox.Text =
-                    usernameTextbox.Text.Replace(" ", string.Empty);
-
-                passwordTextbox.Text =
-                    passwordTextbox.Text.Replace(" ", string.Empty);
-
-                System.Windows.Forms.MessageBox.Show("Username and Password are requied!");
-
-                if (usernameTextbox.Text == string.Empty)
+                if (usernameTextBox.Text == string.Empty)
                 {
-                    usernameTextbox.Focus();
+                    usernameTextBox.Clear();
+                    usernameTextBox.Focus();
                 }
                 else
                 {
-                    passwordTextbox.Focus();
+                    passwordTextBox.Clear();
+                    passwordTextBox.Focus();
                 }
 
                 return;
@@ -69,56 +81,43 @@ namespace MyUserManagement
 
                 Models.User foundedUser =
                     databaseContext.Users
-                    .Where(current => string.Compare(current.Username, usernameTextbox.Text, true) == 0)
+                    .Where(current => string.Compare(current.Username, usernameTextBox.Text, true) == 0)
                     .FirstOrDefault();
 
                 if (foundedUser == null)
                 {
-                    System.Windows.Forms.MessageBox
-                        .Show("Username or Password is not correct!");
+                    System.Windows.Forms.MessageBox.Show("Username or Password is not correct!");
 
-                    usernameTextbox.Focus();
+                    usernameTextBox.Focus();
 
                     return;
                 }
 
-                if (string.Compare(foundedUser.Password, Infrastructure.Utility.getHashSha256(passwordTextbox.Text), ignoreCase: false) != 0)
+                if (string.Compare(foundedUser.Password, Infrastructure.Utility.getHashSha256(passwordTextBox.Text), ignoreCase: false) != 0)
                 {
-                    System.Windows.Forms.MessageBox
-                        .Show("Username or Password is not correct!");
+                    System.Windows.Forms.MessageBox.Show("Username or Password is not correct!");
 
-                    usernameTextbox.Focus();
+                    usernameTextBox.Focus();
 
                     return;
                 }
 
                 if (foundedUser.IsActive == false)
                 {
-                    System.Windows.Forms.MessageBox
-                        .Show("You can not login to this application! Please contact support team.");
+                    System.Windows.Forms.MessageBox.Show("You can not login to this application! Please contact administrator!");
 
-                    usernameTextbox.Focus();
+                    usernameTextBox.Focus();
 
                     return;
                 }
 
-                resetButton_Click(null, null);
+                passwordTextBox.Clear();
                 Hide();
-                // **************************************************
-                System.Windows.Forms.MessageBox.Show("Welcome "+foundedUser.FullName);
-                // **************************************************
 
                 Infrastructure.Utility.AuthenticatedUser = foundedUser;
 
-                
-
-                // **************************************************
-                //MainForm mainForm = new MainForm();
-
-                //mainForm.Show();
-
-                //Infrastructure.Utility.MainForm.Show();
-                // **************************************************
+                Infrastructure.Utility.MainForm.InitializeMainForm();
+                Infrastructure.Utility.MainForm.Show();
             }
             catch (System.Exception ex)
             {

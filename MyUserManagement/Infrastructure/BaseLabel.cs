@@ -1,4 +1,4 @@
-﻿namespace Infrastructure
+﻿namespace MyUserManagement.Infrastructure
 {
     class BaseLabel:System.Windows.Forms.Label
     {
