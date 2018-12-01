@@ -150,6 +150,7 @@ namespace MyUserManagement
                     Password = Infrastructure.Utility.getHashSha256(passwordTextBox.Text),
                     Username = usernameTextBox.Text,
 
+                    NeedPassChange = false,
                     IsActive = false
                 };
 

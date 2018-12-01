@@ -116,6 +116,13 @@ namespace MyUserManagement
 
                 Infrastructure.Utility.AuthenticatedUser = foundedUser;
 
+                if (foundedUser.NeedPassChange)
+                {
+                    ChangePasswordForm changePass = new ChangePasswordForm();
+                    changePass.ShowDialog();
+                }
+
+                
                 Infrastructure.Utility.MainForm.InitializeMainForm();
                 Infrastructure.Utility.MainForm.Show();
             }

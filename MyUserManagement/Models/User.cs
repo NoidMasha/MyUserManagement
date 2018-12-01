@@ -58,5 +58,9 @@
         }
         // **********
 
+        // **********
+        public bool NeedPassChange { get; set; }
+        // **********
+
     }
 }

@@ -147,7 +147,9 @@ namespace MyUserManagement
                 }
 
                 currentUser.Password = Infrastructure.Utility.getHashSha256(newPasswordTextBox.Text);
+                currentUser.NeedPassChange = false;
                 databaseContext.SaveChanges();
+                Infrastructure.Utility.AuthenticatedUser.NeedPassChange = false;
                 System.Windows.Forms.MessageBox.Show("Password changed successfully.");
                 Close();
             }
@@ -167,6 +169,10 @@ namespace MyUserManagement
 
         private void cancelButton_Click(object sender, System.EventArgs e)
         {
+            if (Infrastructure.Utility.AuthenticatedUser.NeedPassChange)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
             Close();
         }
 

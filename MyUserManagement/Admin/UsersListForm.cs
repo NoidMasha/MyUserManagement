@@ -178,6 +178,7 @@ namespace MyUserManagement.Admin
                                 Models.User toResetUser = databaseContext.Users
                                     .Where(current => current.Id == selectedUser.Id).FirstOrDefault();
                                 toResetUser.Password = Infrastructure.Utility.getHashSha256("12345678");
+                                toResetUser.NeedPassChange = true;
                                 databaseContext.SaveChanges();
                                 System.Windows.Forms.MessageBox.Show($"[{selectedUser.Username}] password reset to 12345678");
                             }
