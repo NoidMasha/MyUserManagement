@@ -93,7 +93,7 @@
             this.usernameTextBox.Size = new System.Drawing.Size(244, 21);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.usernameTextBox.WaterMarkText = "Water Mark";
+            this.usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
             this.usernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.usernameTextbox_KeyUp);
             // 
             // passwordTextBox
@@ -107,7 +107,7 @@
             this.passwordTextBox.Size = new System.Drawing.Size(244, 21);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.passwordTextBox.WaterMarkText = "Water Mark";
+            this.passwordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
             this.passwordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.passwordTextbox_KeyUp);
             // 
             // fullnameTextBox
@@ -120,7 +120,7 @@
             this.fullnameTextBox.Size = new System.Drawing.Size(244, 21);
             this.fullnameTextBox.TabIndex = 7;
             this.fullnameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.fullnameTextBox.WaterMarkText = "Water Mark";
+            this.fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
             // 
             // registerButton
             // 
@@ -254,7 +254,7 @@
             this.confirmPassTextBox.Size = new System.Drawing.Size(244, 21);
             this.confirmPassTextBox.TabIndex = 5;
             this.confirmPassTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.confirmPassTextBox.WaterMarkText = "Water Mark";
+            this.confirmPassTextBox.WaterMarkText = "Retype Password";
             this.confirmPassTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.confirmPassTextbox_KeyUp);
             // 
             // pictureBox5

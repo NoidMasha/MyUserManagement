@@ -6,9 +6,9 @@ namespace MyUserManagement
         public ChangePasswordForm() : base()
         {
             InitializeComponent();
-            oldPasswordTextBox.WaterMarkText = "Enter your current password";
-            newPasswordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
-            confirmPasswordTextBox.WaterMarkText = "Retype password";
+            //oldPasswordTextBox.WaterMarkText = "Enter your current password";
+            //newPasswordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
+            //confirmPasswordTextBox.WaterMarkText = "Retype password";
         }
 
         private void ChangePasswordForm_Load(object sender, System.EventArgs e)

@@ -7,10 +7,10 @@ namespace MyUserManagement
         public RegisterForm()
         {
             InitializeComponent();
-            usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
-            passwordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
-            confirmPassTextBox.WaterMarkText = "Retype Password";
-            fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
+            //usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
+            //passwordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
+            //confirmPassTextBox.WaterMarkText = "Retype Password";
+            //fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)

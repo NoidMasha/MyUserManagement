@@ -7,8 +7,8 @@ namespace MyUserManagement
         public AdminRegisterForm()
         {
             InitializeComponent();
-            usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
-            fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
+            //usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
+            //fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)

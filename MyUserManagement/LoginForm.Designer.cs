@@ -68,7 +68,7 @@
             this.usernameTextBox.Size = new System.Drawing.Size(244, 21);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.usernameTextBox.WaterMarkText = "Water Mark";
+            this.usernameTextBox.WaterMarkText = "Username";
             // 
             // passwordTextBox
             // 
@@ -81,7 +81,7 @@
             this.passwordTextBox.Size = new System.Drawing.Size(244, 21);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.passwordTextBox.WaterMarkText = "Water Mark";
+            this.passwordTextBox.WaterMarkText = "Password";
             // 
             // registerButton
             // 

@@ -63,7 +63,7 @@
             this.fullNameTextBox.Size = new System.Drawing.Size(314, 21);
             this.fullNameTextBox.TabIndex = 1;
             this.fullNameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.fullNameTextBox.WaterMarkText = "Water Mark";
+            this.fullNameTextBox.WaterMarkText = "Maximum 50 Letters";
             // 
             // descriptionTextBox
             // 
@@ -76,7 +76,7 @@
             this.descriptionTextBox.Size = new System.Drawing.Size(380, 105);
             this.descriptionTextBox.TabIndex = 3;
             this.descriptionTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.descriptionTextBox.WaterMarkText = "Water Mark";
+            this.descriptionTextBox.WaterMarkText = "Maximum 200 Letters";
             // 
             // saveButton
             // 

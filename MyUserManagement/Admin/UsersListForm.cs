@@ -7,7 +7,6 @@ namespace MyUserManagement.Admin
         public UsersListForm()
         {
             InitializeComponent();
-            fullNameTextBox.WaterMarkText = "Part of Username Or fullname";
         }
 
         private void searchButton_Click(object sender, System.EventArgs e)
@@ -34,14 +33,22 @@ namespace MyUserManagement.Admin
 
                 if (fullNameTextBox.Text == string.Empty)
                 {
-                    users = databaseContext.Users.OrderBy(current => current.FullName).ToList();
+                    if (activeComboBox.SelectedIndex == 0 && adminComboBox.SelectedIndex == 0)
+                    {
+                        users = databaseContext.Users.OrderBy(current => current.FullName).ToList();
+                    }
+                    else
+                    {
+                        users = databaseContext.Users.OrderBy(current => current.FullName).ToList();
+                    }
                 }
                 else
                 {
                     users = databaseContext.Users.Where(current =>
-                    current.FullName.Contains(fullNameTextBox.Text)
-                    || current.Username.Contains(fullNameTextBox.Text))
+                    (current.FullName.Contains(fullNameTextBox.Text)
+                    || current.Username.Contains(fullNameTextBox.Text)))
                     .ToList();
+                    users = users.OrderBy(current => current.FullName).ToList();
                 }
             }
             catch (System.Exception ex)
@@ -207,5 +214,10 @@ namespace MyUserManagement.Admin
             }
         }
 
+        private void UsersListForm_Load(object sender, System.EventArgs e)
+        {
+            activeComboBox.SelectedIndex = 0;
+            adminComboBox.SelectedIndex = 0;
+        }
     }
 }

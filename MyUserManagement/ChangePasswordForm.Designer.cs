@@ -77,7 +77,7 @@
             this.oldPasswordTextBox.Size = new System.Drawing.Size(240, 21);
             this.oldPasswordTextBox.TabIndex = 1;
             this.oldPasswordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.oldPasswordTextBox.WaterMarkText = "Water Mark";
+            this.oldPasswordTextBox.WaterMarkText = "Enter your current password";
             this.oldPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.oldPasswordTextBox_KeyUp);
             // 
             // newPasswordTextBox
@@ -90,7 +90,7 @@
             this.newPasswordTextBox.Size = new System.Drawing.Size(240, 21);
             this.newPasswordTextBox.TabIndex = 3;
             this.newPasswordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.newPasswordTextBox.WaterMarkText = "Water Mark";
+            this.newPasswordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
             this.newPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.newPasswordTextBox_KeyUp);
             // 
             // changeButton
@@ -136,7 +136,7 @@
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(240, 21);
             this.confirmPasswordTextBox.TabIndex = 5;
             this.confirmPasswordTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.confirmPasswordTextBox.WaterMarkText = "Water Mark";
+            this.confirmPasswordTextBox.WaterMarkText = "Retype password";
             this.confirmPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.confirmPasswordTextBox_KeyUp);
             // 
             // showPictureBox

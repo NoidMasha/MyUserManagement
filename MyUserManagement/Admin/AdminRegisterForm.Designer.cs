@@ -73,7 +73,7 @@
             this.usernameTextBox.Size = new System.Drawing.Size(244, 21);
             this.usernameTextBox.TabIndex = 1;
             this.usernameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.usernameTextBox.WaterMarkText = "Water Mark";
+            this.usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
             this.usernameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.usernameTextbox_KeyUp);
             // 
             // fullnameTextBox
@@ -86,7 +86,7 @@
             this.fullnameTextBox.Size = new System.Drawing.Size(244, 21);
             this.fullnameTextBox.TabIndex = 7;
             this.fullnameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
-            this.fullnameTextBox.WaterMarkText = "Water Mark";
+            this.fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
             // 
             // registerButton
             // 
