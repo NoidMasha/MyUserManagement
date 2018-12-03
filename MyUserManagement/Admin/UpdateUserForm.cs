@@ -39,7 +39,11 @@ namespace MyUserManagement.Admin
                     this.Text = this.Text + "  !!! " + foundedUser.Username + " !!!   info";
                     activeCheckBox.Checked = foundedUser.IsActive;
                     adminCheckBox.Checked = foundedUser.IsAdmin;
-
+                }
+                if (foundedUser.IsAdmin)
+                {
+                    adminCheckBox.Enabled = false;
+                    activeCheckBox.Enabled = false;
                 }
             }
             catch (System.Exception ex)
@@ -58,6 +62,29 @@ namespace MyUserManagement.Admin
 
         private void saveButton_Click(object sender, System.EventArgs e)
         {
+            string errorMessages = string.Empty;
+
+            if (fullNameTextBox.Text.Length > 50)
+            {
+                errorMessages = "FullName can be maximum 50 characters!";
+            }
+
+            if (descriptionTextBox.Text.Length > 200)
+            {
+                if (errorMessages != string.Empty)
+                {
+                    errorMessages += System.Environment.NewLine;
+                }
+
+                errorMessages += "Description can be maximum 200 characters!";
+            }
+
+            if (errorMessages != string.Empty)
+            {
+                System.Windows.Forms.MessageBox.Show(errorMessages);
+                return;
+            }
+
             Models.DatabaseContext databaseContext = null;
 
             try

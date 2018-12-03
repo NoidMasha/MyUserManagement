@@ -76,5 +76,10 @@
             }
             userListForm.Show();
         }
+
+        private void newUserRegToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Infrastructure.Utility.AdminRegisterForm.Show();
+        }
     }
 }

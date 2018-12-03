@@ -6,9 +6,6 @@
         {
         }
 
-        // **************************************************
-        //public static System.Guid UserId { get; set; }
-
         public static Models.User AuthenticatedUser { get; set; }
 
         private static MyUserManagement.MainForm mainForm;
@@ -19,7 +16,6 @@
                 if (mainForm == null || mainForm.IsDisposed)
                 {
                     mainForm = new MyUserManagement.MainForm();
-                    //mainForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                 }
                 return mainForm;
             }
@@ -46,9 +42,21 @@
                 if (registerForm == null || registerForm.IsDisposed)
                 {
                     registerForm = new MyUserManagement.RegisterForm();
-                    //registerForm.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
                 }
                 return registerForm;
+            }
+        }
+
+        private static MyUserManagement.AdminRegisterForm adminRegisterForm;
+        public static MyUserManagement.AdminRegisterForm AdminRegisterForm
+        {
+            get
+            {
+                if (adminRegisterForm == null || adminRegisterForm.IsDisposed)
+                {
+                    adminRegisterForm = new MyUserManagement.AdminRegisterForm();
+                }
+                return adminRegisterForm;
             }
         }
 

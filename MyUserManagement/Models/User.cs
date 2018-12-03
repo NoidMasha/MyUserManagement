@@ -45,6 +45,11 @@
         // **********
 
         // **********
+        [System.ComponentModel.DataAnnotations.StringLength
+            (maximumLength: 200)]
+
+        [System.ComponentModel.DataAnnotations.Schema.Index
+            (IsUnique = false)]
         public string Description { get; set; }
         // **********
 

@@ -2,37 +2,28 @@
 
 namespace MyUserManagement
 {
-    public partial class RegisterForm : Infrastructure.BaseForm
+    public partial class AdminRegisterForm : Infrastructure.BaseForm
     {
-        public RegisterForm()
+        public AdminRegisterForm()
         {
             InitializeComponent();
             usernameTextBox.WaterMarkText = "6-20 Letters Or/And Numbers Or/And _";
-            passwordTextBox.WaterMarkText = "8-40 Letters & Numbers & UpperCase";
-            confirmPassTextBox.WaterMarkText = "Retype Password";
             fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
         }
 
         private void resetButton_Click(object sender, System.EventArgs e)
         {
             usernameTextBox.Clear();
-            passwordTextBox.Clear();
-            confirmPassTextBox.Clear();
             fullnameTextBox.Clear();
-
+            adminCheckBox.Checked = false;
             usernameTextBox.Focus();
         }
 
-        private void exitButton_Click(object sender, System.EventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void loginButton_Click(object sender, System.EventArgs e)
+        private void cancelButton_Click(object sender, System.EventArgs e)
         {
             Close();
-            Infrastructure.Utility.LoginForm.Show();
         }
+
 
         private void usernameTextbox_KeyUp(object sender, System.EventArgs e)
         {
@@ -53,10 +44,7 @@ namespace MyUserManagement
                         pictureBox1.Visible = true;
                         pictureBox2.Visible = false;
                         baseLabel4.Visible = false;
-                        if (pictureBox3.Visible && !string.IsNullOrWhiteSpace(fullnameTextBox.Text))
-                        {
-                            registerButton.Enabled = true;
-                        }
+                        registerButton.Enabled = true;
                         return;
                     }
                     else
@@ -84,57 +72,16 @@ namespace MyUserManagement
             {
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = true;
+                registerButton.Enabled = false;
             }
-            enableRegisterButton();
         }
-
-        private void passwordTextbox_KeyUp(object sender, System.EventArgs e)
-        {
-            if (Infrastructure.Utility.validPassword(passwordTextBox.Text, 8, 40))
-            {
-                pictureBox3.Visible = true;
-                pictureBox4.Visible = false;
-
-                confirmPassTextbox_KeyUp(null, null);
-            }
-            else
-            {
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = true;
-            }
-            enableRegisterButton();
-        }
-
-        private void confirmPassTextbox_KeyUp(object sender, System.EventArgs e)
-        {
-            if ((passwordTextBox.Text.Length == confirmPassTextBox.Text.Length &&
-                !string.IsNullOrWhiteSpace(passwordTextBox.Text)) ||
-                pictureBox5.Visible || pictureBox6.Visible)
-            {
-                if (string.Compare(passwordTextBox.Text, confirmPassTextBox.Text, false) == 0)
-                {
-                    pictureBox5.Visible = true;
-                    pictureBox6.Visible = false;
-                }
-                else
-                {
-                    pictureBox5.Visible = false;
-                    pictureBox6.Visible = true;
-                }
-            }
-            enableRegisterButton();
-        }
-
-        private void enableRegisterButton()
-        {
-            registerButton.Enabled = pictureBox1.Visible && pictureBox3.Visible && pictureBox5.Visible;
-        }
+        
 
         private void registerButton_Click(object sender, System.EventArgs e)
         {
             string errorMessages = string.Empty;
 
-            if (fullnameTextBox.Text.Length > 50)
+            if (fullnameTextBox.Text.Length>50)
             {
                 errorMessages = "FullName can be maximum 50 characters!";
             }
@@ -160,21 +107,25 @@ namespace MyUserManagement
                 Models.User user = new Models.User
                 {
                     FullName = fullnameTextBox.Text,
-                    Password = Infrastructure.Utility.getHashSha256(passwordTextBox.Text),
+                    Password = Infrastructure.Utility.getHashSha256("12345678"),
                     Username = usernameTextBox.Text,
 
-                    NeedPassChange = false,
-                    IsActive = false
+                    NeedPassChange = true,
+                    IsActive = activeCheckBox.Checked,
+                    IsAdmin = adminCheckBox.Checked
                 };
 
                 databaseContext.Users.Add(user);
                 databaseContext.SaveChanges();
 
-                System.Windows.Forms.MessageBox.Show("Registration Done!");
+                System.Windows.Forms.MessageBox.Show("Registration Done! \nDefault password is: 12345678");
 
-                Close();
-                Infrastructure.Utility.LoginForm.usernameText = user.Username;
-                Infrastructure.Utility.LoginForm.Show();
+                usernameTextBox.Clear();
+                fullnameTextBox.Clear();
+                adminCheckBox.Checked = false;
+                usernameTextBox.Focus();
+                pictureBox1.Visible = false;
+                pictureBox2.Visible = false;
 
             }
             catch (System.Exception ex)

@@ -66,62 +66,6 @@ namespace MyUserManagement
 
             string errorMessages = string.Empty;
 
-            //if (string.IsNullOrWhiteSpace(oldPasswordTextBox.Text))
-            //{
-            //    errorMessages = "Enter old password please!";
-            //}
-
-            //if (string.IsNullOrWhiteSpace(newPasswordTextBox.Text))
-            //{
-            //    if (errorMessages != string.Empty)
-            //    {
-            //        errorMessages += System.Environment.NewLine;
-            //    }
-
-            //    errorMessages +=
-            //        "Enter new password!";
-            //}
-            //else
-            //{
-            //    if (newPasswordTextBox.Text.Length < 8 || newPasswordTextBox.Text.Length > 40)
-            //    {
-            //        if (errorMessages != string.Empty)
-            //        {
-            //            errorMessages += System.Environment.NewLine;
-            //        }
-
-            //        errorMessages += "Password should be 6-20 characters";
-            //    }
-            //}
-
-            //if (string.IsNullOrWhiteSpace(confirmPasswordTextBox.Text))
-            //{
-            //    if (errorMessages != string.Empty)
-            //    {
-            //        errorMessages += System.Environment.NewLine;
-            //    }
-
-            //    errorMessages += "Confirm password is required!";
-            //}
-            //else
-            //{
-                //if (string.Compare(confirmPasswordTextBox.Text, newPasswordTextBox.Text, ignoreCase: false) != 0)
-                //{
-                //    if (errorMessages != string.Empty)
-                //    {
-                //        errorMessages += System.Environment.NewLine;
-                //    }
-
-                //    errorMessages += "New password and confirmation are not equal!";
-                //}
-            //}
-
-            //if (errorMessages != string.Empty)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(errorMessages);
-            //    return;
-            //}
-
             Models.DatabaseContext databaseContext = null;
 
             try

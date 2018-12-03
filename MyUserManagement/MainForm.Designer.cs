@@ -31,6 +31,7 @@
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
             this.userListToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
+            this.newUserRegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new MyUserManagement.Infrastructure.BaseStatusStrip();
             this.toolStripStatusLabel1 = new MyUserManagement.Infrastructure.BaseToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -62,14 +63,14 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.logOutToolStripMenuItem.Text = "LogOut";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -99,6 +100,7 @@
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newUserRegToolStripMenuItem,
             this.userListToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
@@ -107,9 +109,16 @@
             // userListToolStripMenuItem
             // 
             this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userListToolStripMenuItem.Text = "User List";
             this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            // 
+            // newUserRegToolStripMenuItem
+            // 
+            this.newUserRegToolStripMenuItem.Name = "newUserRegToolStripMenuItem";
+            this.newUserRegToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newUserRegToolStripMenuItem.Text = "Add New User";
+            this.newUserRegToolStripMenuItem.Click += new System.EventHandler(this.newUserRegToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -163,5 +172,6 @@
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateProfileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem newUserRegToolStripMenuItem;
     }
 }

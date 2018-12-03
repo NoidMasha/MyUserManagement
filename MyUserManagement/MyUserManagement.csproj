@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminRegisterForm.Designer.cs">
+      <DependentUpon>AdminRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\UpdateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AdminRegisterForm.resx">
+      <DependentUpon>AdminRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\UpdateUserForm.resx">
       <DependentUpon>UpdateUserForm.cs</DependentUpon>
     </EmbeddedResource>
