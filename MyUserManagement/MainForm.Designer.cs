@@ -30,8 +30,8 @@
             this.updateProfileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
-            this.userListToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
             this.newUserRegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userListToolStripMenuItem = new MyUserManagement.Infrastructure.BaseToolStripMenuItem();
             this.statusStrip1 = new MyUserManagement.Infrastructure.BaseStatusStrip();
             this.toolStripStatusLabel1 = new MyUserManagement.Infrastructure.BaseToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -106,19 +106,19 @@
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "&Admin";
             // 
-            // userListToolStripMenuItem
-            // 
-            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.userListToolStripMenuItem.Text = "User List";
-            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
-            // 
             // newUserRegToolStripMenuItem
             // 
             this.newUserRegToolStripMenuItem.Name = "newUserRegToolStripMenuItem";
-            this.newUserRegToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newUserRegToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newUserRegToolStripMenuItem.Text = "Add New User";
             this.newUserRegToolStripMenuItem.Click += new System.EventHandler(this.newUserRegToolStripMenuItem_Click);
+            // 
+            // userListToolStripMenuItem
+            // 
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.userListToolStripMenuItem.Text = "User List";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -150,6 +150,7 @@
             this.Name = "MainForm";
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿namespace MyUserManagement
+﻿using System.Linq;
+namespace MyUserManagement
 {
     public partial class MainForm : Infrastructure.BaseForm
     {
@@ -80,6 +81,39 @@
         private void newUserRegToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             Infrastructure.Utility.AdminRegisterForm.Show();
+        }
+
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+            if (Infrastructure.Utility.AuthenticatedUser.IsAdmin)
+            {
+                Models.DatabaseContext databaseContext = null;
+
+                try
+                {
+                    databaseContext = new Models.DatabaseContext();
+
+                    int notActiveUsers = 0;
+                    notActiveUsers = databaseContext.Users.Where(current => !current.IsActive).Count();
+                        
+                    if (notActiveUsers != 0)
+                    {
+                        System.Windows.Forms.MessageBox.Show($"{notActiveUsers} users are waiting for activation!");
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (databaseContext != null)
+                    {
+                        databaseContext.Dispose();
+                        databaseContext = null;
+                    }
+                }
+            }
         }
     }
 }
