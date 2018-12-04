@@ -40,7 +40,7 @@ namespace MyUserManagement.Admin
                     activeCheckBox.Checked = foundedUser.IsActive;
                     adminCheckBox.Checked = foundedUser.IsAdmin;
                 }
-                if (foundedUser.IsAdmin)
+                if (foundedUser.IsAdmin && foundedUser.Id == Infrastructure.Utility.AuthenticatedUser.Id)
                 {
                     adminCheckBox.Enabled = false;
                     activeCheckBox.Enabled = false;

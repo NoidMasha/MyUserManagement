@@ -57,6 +57,7 @@
             this.fullNameTextBox.TabIndex = 1;
             this.fullNameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
             this.fullNameTextBox.WaterMarkText = "Part of Username Or fullname";
+            this.fullNameTextBox.TextChanged += new System.EventHandler(this.fullNameTextBox_TextChanged);
             // 
             // usersListBox
             // 
@@ -109,6 +110,7 @@
             this.adminComboBox.Name = "adminComboBox";
             this.adminComboBox.Size = new System.Drawing.Size(101, 21);
             this.adminComboBox.TabIndex = 5;
+            this.adminComboBox.SelectedIndexChanged += new System.EventHandler(this.adminComboBox_SelectedIndexChanged);
             // 
             // adminLabel
             // 
@@ -140,6 +142,7 @@
             this.activeComboBox.Name = "activeComboBox";
             this.activeComboBox.Size = new System.Drawing.Size(101, 21);
             this.activeComboBox.TabIndex = 8;
+            this.activeComboBox.SelectedIndexChanged += new System.EventHandler(this.activeComboBox_SelectedIndexChanged);
             // 
             // UsersListForm
             // 

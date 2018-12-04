@@ -8,9 +8,10 @@ namespace MyUserManagement.Admin
         {
             InitializeComponent();
         }
-
+        private bool startSearch;
         private void searchButton_Click(object sender, System.EventArgs e)
         {
+            startSearch = true;
             search();
         }
 
@@ -31,25 +32,71 @@ namespace MyUserManagement.Admin
                     fullNameTextBox.Text = fullNameTextBox.Text.Replace("  ", " ");
                 }
 
+                #region different search types
                 if (fullNameTextBox.Text == string.Empty)
                 {
                     if (activeComboBox.SelectedIndex == 0 && adminComboBox.SelectedIndex == 0)
                     {
                         users = databaseContext.Users.OrderBy(current => current.FullName).ToList();
                     }
+                    else if (activeComboBox.SelectedIndex != 0 && adminComboBox.SelectedIndex == 0)
+                    {
+
+                        users = databaseContext.Users
+                            .Where(current => current.IsActive == (activeComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
+                    else if (activeComboBox.SelectedIndex == 0 && adminComboBox.SelectedIndex != 0)
+                    {
+                        users = databaseContext.Users
+                            .Where(current => current.IsAdmin == (adminComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
                     else
                     {
-                        users = databaseContext.Users.OrderBy(current => current.FullName).ToList();
+                        users = databaseContext.Users
+                            .Where(current => current.IsActive == (activeComboBox.SelectedIndex == 2 ? false : true) 
+                            && current.IsAdmin == (adminComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
                     }
                 }
                 else
                 {
-                    users = databaseContext.Users.Where(current =>
-                    (current.FullName.Contains(fullNameTextBox.Text)
-                    || current.Username.Contains(fullNameTextBox.Text)))
-                    .ToList();
-                    users = users.OrderBy(current => current.FullName).ToList();
+                    if (activeComboBox.SelectedIndex == 0 && adminComboBox.SelectedIndex == 0)
+                    {
+                        users = databaseContext.Users
+                            .Where(current => (current.FullName.Contains(fullNameTextBox.Text) 
+                            || current.Username.Contains(fullNameTextBox.Text))).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
+                    else if (activeComboBox.SelectedIndex != 0 && adminComboBox.SelectedIndex == 0)
+                    {
+
+                        users = databaseContext.Users
+                            .Where(current => (current.FullName.Contains(fullNameTextBox.Text)
+                            || current.Username.Contains(fullNameTextBox.Text)) 
+                            && current.IsActive == (activeComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
+                    else if (activeComboBox.SelectedIndex == 0 && adminComboBox.SelectedIndex != 0)
+                    {
+                        users = databaseContext.Users
+                            .Where(current => (current.FullName.Contains(fullNameTextBox.Text)
+                            || current.Username.Contains(fullNameTextBox.Text))
+                            && current.IsAdmin == (adminComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
+                    else
+                    {
+                        users = databaseContext.Users
+                            .Where(current => (current.FullName.Contains(fullNameTextBox.Text)
+                            || current.Username.Contains(fullNameTextBox.Text))
+                            && current.IsActive == (activeComboBox.SelectedIndex == 2 ? false : true)
+                            && current.IsAdmin == (adminComboBox.SelectedIndex == 2 ? false : true)).ToList();
+                        users = users.OrderBy(current => current.FullName).ToList();
+                    }
                 }
+                #endregion \different search types
             }
             catch (System.Exception ex)
             {
@@ -218,6 +265,21 @@ namespace MyUserManagement.Admin
         {
             activeComboBox.SelectedIndex = 0;
             adminComboBox.SelectedIndex = 0;
+        }
+
+        private void fullNameTextBox_TextChanged(object sender, System.EventArgs e)
+        {
+            startSearch = false;
+        }
+
+        private void activeComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (startSearch) search();
+        }
+
+        private void adminComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (startSearch) search();
         }
     }
 }
