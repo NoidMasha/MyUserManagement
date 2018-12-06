@@ -60,7 +60,7 @@
             this.baseLabel3.Location = new System.Drawing.Point(22, 57);
             this.baseLabel3.Name = "baseLabel3";
             this.baseLabel3.Size = new System.Drawing.Size(64, 13);
-            this.baseLabel3.TabIndex = 6;
+            this.baseLabel3.TabIndex = 2;
             this.baseLabel3.Text = "&FullName:";
             // 
             // usernameTextBox
@@ -84,7 +84,7 @@
             this.fullnameTextBox.MaxLength = 50;
             this.fullnameTextBox.Name = "fullnameTextBox";
             this.fullnameTextBox.Size = new System.Drawing.Size(244, 21);
-            this.fullnameTextBox.TabIndex = 7;
+            this.fullnameTextBox.TabIndex = 3;
             this.fullnameTextBox.WaterMarkColor = System.Drawing.Color.Gray;
             this.fullnameTextBox.WaterMarkText = "Maximum 50 Letters";
             // 
@@ -94,7 +94,7 @@
             this.registerButton.Location = new System.Drawing.Point(17, 151);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(75, 25);
-            this.registerButton.TabIndex = 8;
+            this.registerButton.TabIndex = 6;
             this.registerButton.Text = "Re&gister";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -104,7 +104,7 @@
             this.resetButton.Location = new System.Drawing.Point(181, 151);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 25);
-            this.resetButton.TabIndex = 9;
+            this.resetButton.TabIndex = 7;
             this.resetButton.Text = "&Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
@@ -116,7 +116,7 @@
             this.cancelButton.Location = new System.Drawing.Point(262, 151);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
-            this.cancelButton.TabIndex = 11;
+            this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -129,7 +129,7 @@
             this.baseLabel4.Location = new System.Drawing.Point(89, 33);
             this.baseLabel4.Name = "baseLabel4";
             this.baseLabel4.Size = new System.Drawing.Size(185, 13);
-            this.baseLabel4.TabIndex = 12;
+            this.baseLabel4.TabIndex = 9;
             this.baseLabel4.Text = "This Username already exist!!!";
             this.baseLabel4.Visible = false;
             // 
@@ -167,7 +167,7 @@
             this.adminCheckBox.Location = new System.Drawing.Point(92, 116);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.adminCheckBox.TabIndex = 14;
+            this.adminCheckBox.TabIndex = 5;
             this.adminCheckBox.Text = "&Admin";
             this.adminCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -179,7 +179,7 @@
             this.activeCheckBox.Location = new System.Drawing.Point(92, 92);
             this.activeCheckBox.Name = "activeCheckBox";
             this.activeCheckBox.Size = new System.Drawing.Size(61, 17);
-            this.activeCheckBox.TabIndex = 13;
+            this.activeCheckBox.TabIndex = 4;
             this.activeCheckBox.Text = "Ac&tive";
             this.activeCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.AcceptButton = this.registerButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(354, 190);
+            this.ClientSize = new System.Drawing.Size(354, 189);
             this.ControlBox = false;
             this.Controls.Add(this.adminCheckBox);
             this.Controls.Add(this.activeCheckBox);

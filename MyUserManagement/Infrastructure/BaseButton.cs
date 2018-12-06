@@ -6,5 +6,15 @@
         {
             Size = new System.Drawing.Size(75, 25);
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BaseButton
+            // 
+            this.ResumeLayout(false);
+
+        }
     }
 }

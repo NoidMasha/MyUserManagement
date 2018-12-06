@@ -114,6 +114,7 @@
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Stuff.cs" />
     <Compile Include="UpdateProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +153,18 @@
     <EmbeddedResource Include="Admin\UsersListForm.resx">
       <DependentUpon>UsersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\BaseButton.resx">
+      <DependentUpon>BaseButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Infrastructure\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infrastructure\BaseListBox.resx">
+      <DependentUpon>BaseListBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateProfileForm.resx">
       <DependentUpon>UpdateProfileForm.cs</DependentUpon>
@@ -201,6 +208,10 @@
   <ItemGroup>
     <Content Include="icons\cancel.png" />
     <Content Include="icons\checked.png" />
+    <None Include="Resources\Untitled1.png" />
+    <None Include="Resources\Untitled.png" />
+    <None Include="Resources\1016.png" />
+    <None Include="Resources\images2.jpg" />
     <None Include="Resources\eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

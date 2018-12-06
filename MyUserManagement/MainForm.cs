@@ -98,7 +98,14 @@ namespace MyUserManagement
                         
                     if (notActiveUsers != 0)
                     {
-                        System.Windows.Forms.MessageBox.Show($"{notActiveUsers} users are waiting for activation!");
+                        if (notActiveUsers == 1)
+                        {
+                            System.Windows.Forms.MessageBox.Show($"{notActiveUsers} user is waiting for activation!");
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show($"{notActiveUsers} users are waiting for activation!");
+                        }
                     }
                 }
                 catch (System.Exception ex)
@@ -114,6 +121,11 @@ namespace MyUserManagement
                     }
                 }
             }
+        }
+
+        private void MainForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

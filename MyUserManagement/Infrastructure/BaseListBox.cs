@@ -6,5 +6,15 @@
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // BaseListBox
+            // 
+            this.ResumeLayout(false);
+
+        }
     }
 }
